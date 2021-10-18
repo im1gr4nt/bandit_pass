@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+grep "lvl $1 " ~/Documents/overthewire/overthewire_pass.txt | cut -d" " -f3 > ~/Documents/overthewire/pass.txt
+#sleep 1
+#cat ~/Documents/overthewire/pass.txt
+sshpass -vf  ~/Documents/overthewire/pass.txt ssh bandit"$1"@bandit.labs.overthewire.org -p2220
+
+
