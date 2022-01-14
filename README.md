@@ -1,6 +1,7 @@
-# Bandit Password
+# Bandit Pass
 
 Over The Wire - Bandit Challenge
+
 Script will help you to store captured passwords and provide easy access to levels you already reached.
 
 ## Installation
