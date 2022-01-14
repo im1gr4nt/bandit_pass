@@ -1,9 +1,25 @@
 #!/bin/bash
 
+#directory where password file is stored
 doc=$"/home/$USER/Documents/bandit"
 
-grep "lvl "$1"" "$doc/overthewire_pass.txt" | cut -d" " -f3 > "$doc/pass.txt"
+#phrase that says ssh to ignore public key checkout
+ignore=$"-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
-sshpass -vf  "$doc/pass.txt" ssh bandit"$1"@bandit.labs.overthewire.org -p2220
-
+#conditional
+if [[ $1 -eq "add" ]]; then
+	#receive lvl and lvl password
+	read -rep "Level: " lvl
+	read -rsp "Password: " pass
+	#append new level to file
+	echo "lvl $lvl $pass" >> "$doc/overthewire_pass.txt"
+elif
+	#find specific lvl in lvl password file and pass to file pass
+	grep "lvl "$1"" "$doc/overthewire_pass.txt" | cut -d" " -f3 > "$doc/pass.txt"
+	#read password from file pass and pass it to ssh
+	sshpass -v -f"$doc/pass.txt" ssh $ignore bandit"$1"@bandit.labs.overthewire.org -p2220
+else
+	echo "Provide level you want to access [bandit <lvl>]"
+	echo "or add new password [bandit add]"
+fi
 
