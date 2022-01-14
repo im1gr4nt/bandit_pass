@@ -11,7 +11,7 @@ Prerequisites: wget, unzip, git, sshpass
 Check the code if you are not sure what it does!
 
 ```bash
-wget -0 https://raw.githubusercontent.com/im1gr4nt/bandit_pass/master/install | bash
+wget -O https://raw.githubusercontent.com/im1gr4nt/bandit_pass/master/install | bash
 ```
 Installer will create new files under new directory ~/Documents/bandit
 
