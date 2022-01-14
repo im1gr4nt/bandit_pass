@@ -13,7 +13,7 @@ if [[ $1 -eq "add" ]]; then
 	read -rsp "Password: " pass
 	#append new level to file
 	echo "lvl $lvl $pass" >> "$doc/overthewire_pass.txt"
-elif
+elif [[ $1 ]] && [ $1 -eq $1 2>/dev/null ]
 	#find specific lvl in lvl password file and pass to file pass
 	grep "lvl "$1"" "$doc/overthewire_pass.txt" | cut -d" " -f3 > "$doc/pass.txt"
 	#read password from file pass and pass it to ssh
