@@ -16,7 +16,7 @@ else
 fi
 
 mkdir "$doc/bandit"  
-mv overthewire_pass.txt "$doc/bandit" 
+mv otw_pass.txt "$doc/bandit" 
 
 #delete all unnecessary files
 cd ..
