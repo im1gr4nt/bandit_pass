@@ -8,7 +8,7 @@ Script will help you to store captured passwords and provide easy access to leve
 
 Prerequisites: wget, unzip, git, sshpass
 
-Check the code if you are not sure what it does!
+Check the code first if you are not sure what it does!
 
 ```bash
 wget -O - https://raw.githubusercontent.com/im1gr4nt/bandit_pass/master/install | bash
