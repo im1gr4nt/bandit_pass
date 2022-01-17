@@ -1,14 +1,15 @@
 #!/usr/bin/bash
 
 #download and unzip repository
-wget https://github.com/im1gr4nt/bandit_pass/archive/refs/heads/main.zip 
-unzip main.zip
-cd bandit_pass-main
+wget https://github.com/im1gr4nt/bandit_pass/archive/refs/heads/master.zip
+unzip master.zip
+cd bandit_pass-master
 
 #define doc variable
 doc=$"/home/$USER/Documents" 
+bin=$"/home/$USER/bin"
 
-#check if user has Documents directory and place there 2 files
+#check if Documents directory exists and place there 2 files
 if [[ ! -d $doc ]]; then
 	mkdir $doc 
 else
@@ -18,6 +19,15 @@ fi
 mkdir "$doc/bandit"  
 mv otw_pass.txt "$doc/bandit" 
 
+#check if bin directory exists and place there bandit file
+if [[ ! -d $bin ]]; then
+	mkdir $bin 
+else
+	:
+fi
+
+mv bandit "$bin" 
+
 #delete all unnecessary files
 cd ..
-rm -rf bandit_pass-main
+rm -rf bandit_pass-master master.zip
