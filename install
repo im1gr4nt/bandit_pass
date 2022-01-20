@@ -6,8 +6,8 @@ unzip master.zip
 cd bandit_pass-master
 
 #define doc variable
-doc=$"/home/$USER/Documents" 
-bin=$"/home/$USER/bin"
+doc=$"$HOME/Documents" 
+bin=$"$HOME/bin"
 
 #check if Documents directory exists and place there 2 files
 if [[ ! -d $doc ]]; then
@@ -27,6 +27,12 @@ else
 fi
 
 mv bandit "$bin" 
+
+#check if path has home bin dir inserted, add if not
+if [[ echo $PATH | grep "$HOME/bin" ]]; then
+	:
+else
+	export PATH="$HOME/bin:$PATH"
 
 #delete all unnecessary files
 cd ..
