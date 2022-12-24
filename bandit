@@ -1,10 +1,10 @@
 #!/bin/bash
 
 #directory where password file is stored
-doc=$"/home/$USER/Documents/bandit"
+doc="~/Documents/bandit/"
 
 #phrase that says ssh to ignore public key checkout
-ignore=$"-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+ignore="-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
 #conditional
 if [[ -z $1 ]]; then
@@ -16,12 +16,12 @@ else
 		read -rep "Level: " lvl
 		read -resp "Password: " pass
 		#append new level to file
-		echo "lvl $lvl $pass" >> "$doc/otw_pass.txt"
+		echo "lvl $lvl $pass" >> "$doc"otw_pass.txt
 	elif [[ $1 ]] && [ $1 -eq $1 2>/dev/null ]; then
 		#find specific lvl in lvl password file and pass to file pass
-		grep "lvl "$1"" "$doc/otw_pass.txt" | cut -d" " -f3 > "$doc/pass.txt"
+		grep "lvl $1" "$doc"otw_pass.txt | cut -d" " -f3 > "$doc"pass.txt
 		#read password from file pass and pass it to ssh
-		sshpass -v -f"$doc/pass.txt" ssh $ignore bandit"$1"@bandit.labs.overthewire.org -p2220
+		sshpass -v -f"$doc"pass.txt ssh $ignore bandit"$1"@bandit.labs.overthewire.org -p2220
 	else
 		:
 	fi
